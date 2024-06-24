@@ -65,7 +65,7 @@ public class SalaryTests {
 
         Employe rabe = new Employe("Rabe", "R", "002",
                 birthDateRabe, hireDateRabe, endDateRabe, 120000.0,
-                new Category(CategoryName.caretaker, 0, 120000.0, 0.0));
+                new Category(CategoryName.caretaker, 6, 120000.0, 0.0));
         // Calcul du salaire de jour pour Rakoto
         double rakotoDaySalary = getDayWorkerSalary(calendars, rakoto, pointages);
         System.out.println("Salaire de jour pour Rakoto : " + rakotoDaySalary);
