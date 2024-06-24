@@ -63,22 +63,22 @@ public class SalaryTests {
     }
 
     @Test
-    public void testCalculateDayWorkerSalaryForRakoto() {
+    public void test_calculate_day_worker_salary_for_Rakoto() {
         double rakotoDaySalary = getDayWorkerSalary(calendars, rakoto, pointages);
         LOGGER.info("Day salary for Rakoto: " + rakotoDaySalary);
         assertEquals("Day salary for Rakoto", 240000.0, rakotoDaySalary, 0.01);
     }
 
     @Test
-    public void testCalculateNightWorkerSalaryForRabe() {
+    public void test_calculate_night_worker_salary_for_Rabe() {
         double rabeNightSalary = getNightWorkerSalary(calendars, rabe, pointages);
         LOGGER.info("Night salary for Rabe: " + rabeNightSalary);
         assertEquals("Night salary for Rabe", 249600.0, rabeNightSalary, 0.01);
     }
 
     @Test
-    public void testCalculateAdjustedSalaryForRakoto() {
-        pointages.add(new Pointage(LocalDateTime.of(2024, 6, 25, 8, 0), 16, null, false));
+    public void test_Calculate_adjusted_salary_for_Rakoto() {
+        pointages.add(new Pointage(LocalDateTime.of(2024, 6, 25, 10, 0), 16, null, false));
         pointages.add(new Pointage(LocalDateTime.of(2024, 6, 26, 8, 0), 16, null, false));
 
         double rakotoAdjustedSalary = getDayWorkerSalary(calendars, rakoto, pointages);
@@ -87,7 +87,7 @@ public class SalaryTests {
     }
 
     @Test
-    public void testCalculateAdjustedSalaryForRabe() {
+    public void test_calculate_adjusted_salary_for_Rabe() {
         pointages.add(new Pointage(LocalDateTime.of(2024, 6, 25, 8, 0), 16, null, false));
         pointages.add(new Pointage(LocalDateTime.of(2024, 6, 26, 8, 0), 16, null, false));
 
@@ -97,13 +97,13 @@ public class SalaryTests {
     }
 
     @Test
-    public void testTotalHoursInMonthForRakoto() {
+    public void test_total_hours_in_month_for_Rakoto() {
         int totalHoursInMonth = calculateTotalHoursInMonth(8, 30, 16);
         assertEquals("Total hours for Rakoto", 256, totalHoursInMonth);
     }
 
     @Test
-    public void testTotalHoursInMonthForRabe() {
+    public void test_total_hours_in_month_for_Rabe() {
         int totalHoursInMonth = calculateTotalHoursInMonth(8, 28, 0);
         assertEquals("Total hours for Rabe", 224, totalHoursInMonth);
     }
