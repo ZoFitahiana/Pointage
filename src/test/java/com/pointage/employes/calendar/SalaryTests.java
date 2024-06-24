@@ -20,11 +20,11 @@ import static com.pointage.employes.operation.Salary.*;
 import static org.junit.Assert.assertEquals;
 
 public class SalaryTests {
+    private static final Logger LOGGER = Logger.getLogger(SalaryTests.class.getName());
     private List<Pointage> pointages;
     private Calendars calendars;
     private Employe rakoto;
     private Employe rabe;
-    private static final Logger LOGGER = Logger.getLogger(SalaryTests.class.getName());
 
     @Before
     public void setUp() {

@@ -10,9 +10,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Salary {
-    public static int calculateTotalHoursInMonth(int dailyHours, int daysInMonth,int overtimeHoursInMonth) {
-        return (dailyHours  * daysInMonth)+ overtimeHoursInMonth;
+    public static int calculateTotalHoursInMonth(int dailyHours, int daysInMonth, int overtimeHoursInMonth) {
+        return (dailyHours * daysInMonth) + overtimeHoursInMonth;
     }
+
     public static double calculateNormalHourlyRate(double weeklySalary, int weeklyHours) {
         return weeklySalary / weeklyHours;
     }
@@ -38,7 +39,6 @@ public class Salary {
 
         LocalDate startDate = LocalDate.of(2024, 6, 1);
         LocalDate endDate = LocalDate.of(2024, 6, 30);
-        List<LocalDate> holidaysList = calendars.getHolidaysList();
 
         for (LocalDate date = startDate; !date.isAfter(endDate); date = date.plusDays(1)) {
             int hoursWorked = 0;
@@ -103,7 +103,4 @@ public class Salary {
 
         return nightSalary + holidaySalary;
     }
-
-
-
 }

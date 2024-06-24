@@ -5,15 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Time;
-
 @Getter
 @Setter
 @AllArgsConstructor
 public class Category {
-    private CategoryName name ;
+    private CategoryName name;
     private int hourWorkWeek;
     private Double salaryWeek;
-    private Double indemniser ;;
-
+    private Double indemniser;
 }
