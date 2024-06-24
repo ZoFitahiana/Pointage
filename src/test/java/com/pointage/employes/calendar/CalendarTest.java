@@ -7,10 +7,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalendarTest {
+    private static final Logger LOGGER = Logger.getLogger(SalaryTests.class.getName());
     @Test
     void test_are_holidays_for_june_2024() {
         Calendar calendar = Calendar.getInstance();
@@ -42,6 +44,8 @@ public class CalendarTest {
 
         // Get the actual results from the method
         List<Boolean> actualResults = calendars.areHolidays(datesToCheck);
+        LOGGER.info(actualResults.toString());
+
 
         // Assert that the actual results match the expected results
         assertEquals(expectedResults, actualResults);
