@@ -17,6 +17,7 @@ import java.util.List;
 
 import static com.pointage.employes.operation.Salary.getDayWorkerSalary;
 import static com.pointage.employes.operation.Salary.getNightWorkerSalary;
+import static org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties.UiService.LOGGER;
 
 public class SalaryTests {
     private List<Pointage> pointages;
