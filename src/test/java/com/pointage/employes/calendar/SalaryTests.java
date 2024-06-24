@@ -14,14 +14,15 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 import static com.pointage.employes.operation.Salary.getDayWorkerSalary;
 import static com.pointage.employes.operation.Salary.getNightWorkerSalary;
-import static org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties.UiService.LOGGER;
 
 public class SalaryTests {
     private List<Pointage> pointages;
     private Calendars calendars;
+    private static final Logger LOGGER = Logger.getLogger(SalaryTests.class.getName());
 
     @Before
     public void setUp() {
@@ -68,10 +69,10 @@ public class SalaryTests {
                 new Category(CategoryName.caretaker, 6, 120000.0, 0.0));
         // Calcul du salaire de jour pour Rakoto
         double rakotoDaySalary = getDayWorkerSalary(calendars, rakoto, pointages);
-        System.out.println("Salaire de jour pour Rakoto : " + rakotoDaySalary);
+        LOGGER.info("Salaire de jour pour Rakoto : " + rakotoDaySalary);
 
         // Calcul du salaire de nuit pour Rabe
         double rabeNightSalary = getNightWorkerSalary(calendars, rabe, pointages);
-        System.out.println("Salaire de nuit pour Rabe : " + rabeNightSalary);
+        LOGGER.info("Salaire de nuit pour Rabe : " + rabeNightSalary);
     }
 }
