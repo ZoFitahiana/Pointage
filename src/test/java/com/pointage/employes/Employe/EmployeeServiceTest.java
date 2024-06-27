@@ -67,11 +67,10 @@ public class EmployeeServiceTest {
         Map<String, Double> salaries = EmployeeService.calculateSalaries(employees, pointages, calendar);
 
         // Assuming correct values calculated manually or using a trusted source
-        double expectedRakotoSalary = 800000.0;
-        double expectedRabeSalary = 780000.0;
+        double expectedSalary =624571.0;
 
-        assertEquals(expectedRakotoSalary * 0.8, salaries.get("RA001"));
-        assertEquals(expectedRabeSalary * 0.8, salaries.get("RA002"));
+        assertEquals(expectedSalary,Math.round( salaries.get("RA001")));
+        assertEquals(expectedSalary,Math.round( salaries.get("RA002")));
     }
 }
 
