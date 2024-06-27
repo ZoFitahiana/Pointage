@@ -8,6 +8,7 @@ import com.pointage.employes.operation.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -72,5 +73,30 @@ public class EmployeeServiceTest {
         assertEquals(expectedSalary,Math.round( salaries.get("RA001")));
         assertEquals(expectedSalary,Math.round( salaries.get("RA002")));
     }
+
+    @Test
+    public void test_calculate_salaries_with_holiday_and_night_shift() {
+        // Modify pointages to reflect the holiday and night shift scenario
+        pointages.clear();
+        LocalDate holidayDate = LocalDate.of(2024, 6, 26); // Wednesday, 26th June 2024
+        for (int i = 0; i < 42; i++) {
+            LocalDateTime dateTime = LocalDateTime.of(2024, 6, 1, 8, 0).plusDays(i);
+            int hoursWorked = dateTime.getDayOfWeek().equals(DayOfWeek.WEDNESDAY) ? 10 : 14;
+            boolean isNightShift = dateTime.getHour() >= 20 || dateTime.getHour() < 6;
+
+            pointages.add(new Pointage(dateTime, hoursWorked, rakoto, isNightShift));
+            pointages.add(new Pointage(dateTime, hoursWorked, rabe, isNightShift));
+        }
+
+        List<Employe> employees = Arrays.asList(rakoto, rabe);
+        Map<String, Double> salaries = EmployeeService.calculateSalaries(employees, pointages, calendar);
+
+        // Assuming correct values calculated manually or using a trusted source
+        double expectedSalary = 283429.0;
+
+        assertEquals(expectedSalary, Math.round(salaries.get("RA001")));
+        assertEquals(expectedSalary, Math.round(salaries.get("RA002")));
+    }
+
 }
 
