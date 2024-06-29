@@ -18,8 +18,4 @@ public class Employe {
     private Date ContractEndDate;
     private Double salary;
     private Category category;
-
-    public double getSalaireNet() {
-        return (salary * 0.8);
-    }
 }

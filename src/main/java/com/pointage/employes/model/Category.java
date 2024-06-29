@@ -10,7 +10,4 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Category {
     private CategoryName name;
-    private int hourWorkWeek;
-    private Double salaryWeek;
-    private Double indemniser;
 }

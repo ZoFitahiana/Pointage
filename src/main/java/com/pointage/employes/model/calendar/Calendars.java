@@ -7,6 +7,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -14,17 +15,12 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class Calendars {
-    private Calendar calendar ;
-    private List<LocalDate> holidaysList;
 
-    public boolean isHoliday(LocalDate date) {
+    private Date startDate ;
+    private Date endDate ;
+    private List<Date> holidaysList;
+
+    public boolean isHoliday(Date date) {
         return holidaysList.contains(date);
-    }
-    public List<Boolean> areHolidays(List<LocalDate> dates) {
-        List<Boolean> results = new ArrayList<>();
-        for (LocalDate date : dates) {
-            results.add(isHoliday(date));
-        }
-        return results;
     }
 }
